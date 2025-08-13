@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "97018b94-5fe3-43c2-95ff-8fb0a528753e",
+		"name": "CalenderAppointment",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47502364",
+		"_collection_link": "https://adireddichandu-2577600.postman.co/workspace/chandrika's-Workspace~a176e0ff-dd12-4b66-8982-be97581b8b04/collection/47502364-97018b94-5fe3-43c2-95ff-8fb0a528753e?action=share&source=collection_link&creator=47502364"
+	},
+	"item": [
+		{
+			"name": "Owner",
+			"item": [
+				{
+					"name": "Set Availability",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerId\": \"owner001\",\n    \"date\": \"2025-08-15\",\n    \"startTime\": \"10:15\",\n    \"endTime\": \"16:45\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/owner/availability",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"owner",
+								"availability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Appointments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/owner/appointments?ownerId=owner001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"owner",
+								"appointments"
+							],
+							"query": [
+								{
+									"key": "ownerId",
+									"value": "owner001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Invitee",
+			"item": [
+				{
+					"name": "Available Slots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/invitee/slots?ownerId=owner001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"invitee",
+								"slots"
+							],
+							"query": [
+								{
+									"key": "ownerId",
+									"value": "owner001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Book Appointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ownerId\": \"owner001\",\n    \"date\": \"2025-08-14\",\n    \"startTime\": \"15:00\",\n    \"inviteeName\": \"abc def\",\n    \"inviteeEmail\": \"abc@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/invitee/appointments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"invitee",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
